@@ -26,3 +26,9 @@ az role assignment create --assignee "$APP_ID" --role "Azure Kubernetes Service 
 # Verify the Role Assignment
 echo "Verifying role assignment..."
 az role assignment list --assignee "$APP_ID" --all --output table
+
+
+
+
+sed -i -e '$a\' -e 'Private:' -e '    registries:' -e '        - registry: aftigact.com' file.yaml
+echo -e "\nPrivate:\n    registries:\n        - registry: aftigact.com" | tee -a file.yaml
